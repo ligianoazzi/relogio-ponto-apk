@@ -1,0 +1,21 @@
+<md-dialog aria-label="Definir despesa paga" onload="focarCampo()">
+    <form name='myForm' ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <span class="md-headline">{{dados.nome_guerra}} - Informe seu aniversário</span>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <md-content layout="column">
+                <div class="md-dialog-content" layout="column">
+                    <md-input-container class="md-headline">
+                        <input type="tel" ng-model="senha" ng-change="digitar()" md-autofocus maxlength="4" ng-blur="cancel()">
+                    </md-input-container>
+                </div>
+            </md-content>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button ng-click="cancel()">Cancelar</md-button><span flex></span>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

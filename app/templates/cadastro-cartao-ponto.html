@@ -1,0 +1,41 @@
+<md-content layout="row" layout-align="center center" flex class="conteudo">         
+  <md-card flex="80">
+          <md-card-title>
+              <md-card-title-text layout-align="center center" >
+                  <span class="md-display-1" ng-if="!mostrarRecentes">Registrar Ponto</span>
+                  <span class="md-display-1" ng-if="mostrarRecentes">Registrados Recentemente</span>
+                  <md-button ng-click="alternarLista()" class="md-primary">
+                    <span ng-if="!mostrarRecentes">Recentes</span>
+                    <span ng-if="mostrarRecentes">Pendentes</span>
+                  </md-button>
+              </md-card-title-text>
+          </md-card-title>
+      <md-card-content style="padding-left: 0; padding-right: 0">
+          <md-list flex="100">
+              <md-divider></md-divider>
+              <md-list-item class="md-3-line" ng-if="!mostrarRecentes" ng-repeat="colaborador in colaboradores" ng-click="configDialogRegistroPonto($event, colaborador)">
+                  <img ng-src="{{url_web}}/comercial/Operacional/assets/img/colaborador/fotos_TS/{{colaborador.foto}}" class="md-avatar" style="zoom:130%; padding-left: 2%; padding-right: 2%"/>
+                  <div class="md-list-item-text" layout="column">
+                      <span class="md-headline">{{ colaborador.nome_guerra}}</span>
+                  </div>
+              </md-list-item>
+              <md-list-item class="md-3-line" ng-if="mostrarRecentes" ng-repeat="colaborador in registrosRecentes" ng-click="configDialogRegistroPonto($event, colaborador)">
+                  <img ng-src="{{url_web}}/comercial/Operacional/assets/img/colaborador/fotos_TS/{{colaborador.foto}}" class="md-avatar" style="zoom:130%; padding-left: 2%; padding-right: 2%"/>
+                  <div class="md-list-item-text" layout="column">
+                      <span class="md-headline">{{ colaborador.nome_guerra}}</span>
+                  </div>
+              </md-list-item>
+          </md-list>
+
+      </md-card-content>
+  </md-card>
+</md-content>
+
+<style>
+  body {
+    background-color: #00695C;
+  }
+  .conteudo {
+    background-color: #00695C
+  }
+</style>
